@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MVC_PROJECT.Models.Friend>
+@{
+    ViewBag.Title = "Create";
+}
+
+<header>
+    <link href="~/Views/Friend/Style.css" rel="stylesheet" type="text/css" />
+</header>
+
+<div class="header-container">
+    <div class="header">Create Friend</div>
+    <i class="fa fa-user" style="font-size: 28px"></i>
+</div>
+
+<form action="@Url.Action("Create","Friend")" method="post" class="container">
+    <div class="card-row">
+        <div class="card-row-left">
+            Full Name:
+        </div>
+        <div class="card-row-right">
+            <input type="text" name="fullName" class="text-input" />
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Age:
+        </div>
+        <div class="card-row-right">
+            <select class="select" name="age" id="age">
+                <!-- js -->
+            </select>
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Gender:
+        </div>
+        <div class="card-row-right">
+            <select class="select" name="gender" id="gender">
+                <!-- js -->
+            </select>
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Lives In:
+        </div>
+        <div class="card-row-right">
+            <input type="text" name="livesIn" class="text-input" maxlength="20" />
+        </div>
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn save-btn">Create</button>
+        <a href="@Url.Action("Index", "Home")" class="btn cancel-btn">Cancel</a>
+    </div>
+</form>
+
+<script>
+    for (var i = 1; i < 120; i++) {
+        document.getElementById('age').innerHTML += `<option id="age_${i}" value="${i}">${i}</option>`
+    }
+    ['F', 'M'].map(g => document.getElementById('gender').innerHTML += `<option id="gender_${g}" value="${g}">${g}</option>`)
+
+</script>

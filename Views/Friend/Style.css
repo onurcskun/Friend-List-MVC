@@ -1,0 +1,101 @@
+﻿.fa-user {
+    margin-left: 10px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
+    background-color: #fff;
+    width: 320px;
+ 
+    border-radius: 5px;
+    padding: 20px;
+    justify-content: space-around;
+}
+.card-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 33px;
+}
+.card-row-left {
+    flex: 1;
+}
+.card-row-right {
+    flex: 1;
+}
+.fa-edit {
+    margin-left: 10px;
+}
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: space-around;
+    margin-top: 20px;
+    align-items: center;
+}
+.btn {
+    display: flex;
+    width: 130px;
+    height: 33px;
+    justify-content: center;
+    font-size: 16px;
+    align-items: center;
+}
+.detail-page-btn {
+    width: 85px;
+}
+.edit-btn {
+    background-color: transparent;
+    border: 1px solid #4c65ff;
+    border-radius: 6px;
+    color: #4c65ff;
+}
+.delete-btn {
+    background-color: #fe4340;
+    border-radius: 6px;
+    color: #fff;
+    border: 0px;
+}
+.save-btn {
+    background-color: #4c65ff;
+    border-radius: 6px;
+    color: #fff;
+    border: 0px;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    border: 1px solid #fe4340;
+    border-radius: 6px;
+    color: #fe4340;
+}
+.back-btn {
+    background-color: transparent;
+    border: 1px solid #6b768c;
+    border-radius: 6px;
+    color: #000;
+}
+.btn:hover {
+    opacity: 0.7;
+}
+.btn:active {
+    opacity: 0.4;
+}
+.text-input {
+    width: 140px;
+    border: 1px solid #dfe7f6;
+    height: 25px;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+}
+.select {
+    width: 162px;
+    font-size: 14px;
+    height: 20px;
+    background-color: #fff;
+    border: 1px solid #dfe7f6;
+}

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MVC_PROJECT.Models.Friend>
+@{
+    ViewBag.Title = "List";
+}
+
+<header>
+    <link href="~/Views/Home/Style.css" rel="stylesheet" type="text/css" />
+</header>
+
+<div class="header-container">
+    <div class="header">My Friend List </div>
+    <i class="fa fa-users" style="font-size: 28px"></i>
+</div>
+<div class="container">
+    <div class="search-container">
+        <input
+            autocomplete="off"
+            class="search-input"
+            type="text"
+            id="search-input"
+            name="searchInput"
+            oninput="filterList()"
+            placeholder="Search a friend.."
+        />
+        <i class="fa fa-search search-icon"></i>
+        <a
+            href="@Url.Action("Create", "Friend")"
+            class="btn plus-btn"
+        >
+            Create New <i class="fa fa-plus"></i>
+        </a>
+    </div>
+    <div class="list-container">
+        <div class="list" id="list"></div>
+    </div>
+</div>
+<script>
+    var friendList = [];
+    @foreach (var d in Model) {
+        @:friendList.push({ id: "@d.id", fullName: "@d.fullName", age: "@d.age", livesIn: "@d.livesIn", gender: "@d.gender" });
+    }
+
+    function getFullList() {
+        friendList.map(item => {
+            document.getElementById("list").innerHTML
+                += `<a class="list-item" href="@Url.Action("Detail", "Friend")/${item.id}">${item.fullName}</a>`
+        });
+    }
+    getFullList();
+
+    function filterList() {
+        var newElements = "";
+        var nSearchKey = document.getElementById('search-input').value.toLowerCase();
+        friendList.filter(friend => friend.fullName.toLowerCase().includes(nSearchKey))
+            .map(item => {
+                newElements += `<a class="list-item" href="@Url.Action("Detail", "Friend")/${item.id}">${item.fullName}</a>`
+            });
+        document.getElementById("list").innerHTML = newElements;
+        console.log(friendList.filter(friend => friend.fullName.includes(nSearchKey)))
+    }
+</script>

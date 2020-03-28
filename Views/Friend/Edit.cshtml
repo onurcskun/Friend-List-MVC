@@ -1,0 +1,67 @@
+﻿@model MVC_PROJECT.Models.Friend
+@{
+    ViewBag.Title = "Edit";
+}
+
+<header>
+    <link href="~/Views/Friend/Style.css" rel="stylesheet" type="text/css" />
+</header>
+
+<div class="header-container">
+    <div class="header">Edit Friend</div>
+    <i class="fa fa-user" style="font-size: 28px"></i>
+</div>
+
+<form action="@Url.Action("Edit","Friend")" method="post" class="container">
+    <input type="hidden" name="id" value="@Model.id" />
+    <div class="card-row">
+        <div class="card-row-left">
+            Full Name:
+        </div>
+        <div class="card-row-right">
+            <input type="text" name="fullName" value="@Model.fullName" class="text-input" />
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Age:
+        </div>
+        <div class="card-row-right">
+            <select class="select" name="age" id="age">
+                <!-- js -->
+            </select>
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Gender:
+        </div>
+        <div class="card-row-right">
+            <select class="select" name="gender" id="gender">
+                <!-- js -->
+            </select>
+        </div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Lives In:
+        </div>
+        <div class="card-row-right">
+            <input type="text" name="livesIn" value="@Model.livesIn" class="text-input" maxlength="20" />
+        </div>
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn save-btn">Save</button>
+        <a href="@Url.Action("Detail", "Friend", new { id = @Model.id })" class="btn cancel-btn">Cancel</a>
+    </div>
+</form>
+
+<script>
+    for (var i = 1; i < 120; i++) {
+        document.getElementById('age').innerHTML += `<option id="age_${i}" value="${i}">${i}</option>`
+    }
+    document.getElementById("age_@Model.age").setAttribute("selected", true);
+    ['F', 'M'].map(g => document.getElementById('gender').innerHTML += `<option id="gender_${g}" value="${g}">${g}</option>`)
+    document.getElementById("gender_@Model.gender").setAttribute("selected", true);
+
+</script>

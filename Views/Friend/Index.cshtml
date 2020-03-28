@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MVC_PROJECT.Models.Friend>
+@{
+    ViewBag.Title = "Detail";
+}
+
+@foreach (var item in Model)
+{
+    <div>@item.fullName</div>
+}
+<div class="card-container">
+    <div class="card-row">
+        <div>Full Name:@ViewBag.friend.fullName asdasd</div>
+        <div class="card-row-right">
+            <div>asdasdasd</div>
+
+            <a href="#"><i class="fa fa-edit"></i></a>
+        </div>
+    </div>
+</div>

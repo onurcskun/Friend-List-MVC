@@ -1,0 +1,23 @@
+﻿textarea, select, input, button, a {
+    outline: none;
+    font-family: sans-serif
+}
+a {
+    text-decoration-line: none;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.header {
+    font-size: 32px;
+}

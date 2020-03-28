@@ -1,0 +1,59 @@
+﻿@model MVC_PROJECT.Models.Friend
+@{
+    ViewBag.Title = "Detail";
+}
+
+<header>
+    <link href="~/Views/Friend/Style.css" rel="stylesheet" type="text/css" />
+</header>
+
+<div class="header-container">
+    <div class="header">Friend Detail</div>
+    <i class="fa fa-user" style="font-size: 28px"></i>
+</div>
+<form action="@Url.Action("Delete","Friend")" method="post" class="container">
+    <input type="hidden" name="id" value="@Model.id" />
+    <input type="hidden" name="fullName" value="@Model.fullName" />
+    <input type="hidden" name="age" value="@Model.age" />
+    <input type="hidden" name="gender" value="@Model.gender" />
+    <input type="hidden" name="livesIn" value="@Model.livesIn" />
+
+    <div class="card-row">
+        <div class="card-row-left">
+            Full Name:
+        </div>
+        <div class="card-row-right">@Model.fullName</div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Age:
+        </div>
+        <div class="card-row-right">@Model.age</div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Gender:
+        </div>
+        <div class="card-row-right" id="gender"><!-- js --></div>
+    </div>
+    <div class="card-row">
+        <div class="card-row-left">
+            Lives In:
+        </div>
+        <div class="card-row-right">@Model.livesIn</div>
+    </div>
+    <div class="btn-group">
+        <a href="@Url.Action("Index", "Home")" class="btn detail-page-btn back-btn"><i class="fa fa-arrow-left"></i>&nbsp;List</a>
+        <a href="@Url.Action("Edit", "Friend", new { id = @Model.id })" class="btn detail-page-btn edit-btn">Edit</a>
+        <button type="submit" class="btn detail-page-btn delete-btn">Delete</button>
+    </div>
+</form>
+
+<script>
+    if ("@Model.gender" == "M") {
+        document.getElementById('gender').innerHTML = 'Male';
+    } else {
+        document.getElementById('gender').innerHTML = 'Female';
+    }
+
+</script>
